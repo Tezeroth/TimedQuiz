@@ -60,32 +60,37 @@ var currentQuestionIndex = 0;//set to 0 so we can start at the first question
 
 function showQuestions() {
    // Get the current question from the quizQuestions array using the currentQuestionIndex
-    var currentQuestion = quizQuestions
+    var currentQuestion = quizQuestions[currentQuestionIndex];
 
     // Update the questionTitleEL to show the current question
-    [currentQuestionIndex];
-
-    // Clear out any old question choices by clearing the innerHTML of the choicesEL
     questionTitleEL.textContent = currentQuestion.question;
 
+    // Clear out any old question choices by clearing the innerHTML of the choicesEL
     choicesEL.innerHTML = '';
+
+    // Create a list element to hold the buttons
+    var choicesList = document.createElement("ul");
 
     // Loop over the current question's choices
     for (var i = 0; i < currentQuestion.choices.length; i++) {
-        // Create a button for each choice (using document.createElement("button"))
+        // Create a list item for each choice
+        var listItem = document.createElement("li");
 
-        // todo put the buttons in a list
-        
+        // Create a button for each choice
         var buttonEL = document.createElement("button");
-        // Add a class to the button called choice-btn
         buttonEL.textContent = currentQuestion.choices[i];
-          // Set a data attribute on the button with the index of the choice
         buttonEL.setAttribute("data-choice-id", i);
-        // Add an event listener to the button that will handle the choice selection when clicked
         buttonEL.addEventListener("click", handleChoiceSelection);
-         // Append the button to the choicesEL element
-        choicesEL.appendChild(buttonEL);
+
+        // Append the button to the list item
+        listItem.appendChild(buttonEL);
+
+        // Append the list item to the choices list
+        choicesList.appendChild(listItem);
     }
+
+    // Append the choices list to the choicesEL element
+    choicesEL.appendChild(choicesList);
 }
 
 
