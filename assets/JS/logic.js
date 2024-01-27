@@ -175,7 +175,7 @@ function handleChoiceSelection(event) {
             // Quiz completed
             // TODO: Handle end of quiz logic
             document.getElementById('end-screen').style.display = 'block';
-            document.getElementById('final-score').innerHTML = score;
+            document.getElementById('finalScore').innerHTML = score;
             // Hide the last question and buttons
             questionTitleEL.style.display = 'none';
             choicesEL.style.display = 'none';
@@ -210,9 +210,23 @@ function handleChoiceSelection(event) {
     }
 }
 
+function saveHighScore() {
+  var initials = document.getElementById('initials').value;
+  
+
+  var highscoresList = document.getElementById('finalScore');
+  var listItem = document.createElement('li');
+  listItem.textContent = initials + ': ' + finalScore;
+  highscoresList.appendChild(listItem);
+}
+saveHighScore();
 
 document.getElementById('start').addEventListener('click', startTheGame);
 document.getElementById('start').addEventListener('click', startTimer);
+document.getElementById('submit').addEventListener('click', saveHighScore);
+
+// document.getElementById('start').addEventListener('click', startTheGame);
+// document.getElementById('start').addEventListener('click', startTimer);
 // yes getting blagged by syntax errors for hours is fun. 
 
 

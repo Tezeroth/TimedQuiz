@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" href="/assets/images/favicon.png">
   <!-- why do i even need these? whats the point? -->
   <body>
-    
+    <script type ="module" src="./assets/js/questions.js"></script>
     <div class="scores"><a href="highscores.html">View Highscores</a></div>
     <div id="actualscore"></div>
 
@@ -38,7 +38,7 @@
 
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
-        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>Your final score is <span id="finalScore"></span>.</p>
         <p>
           Enter initials: <input type="text" id="initials" max="3" />
           <button id="submit">Submit</button>
@@ -48,7 +48,7 @@
       <div id="feedback" class="feedback hide"></div>
     </div>
 
-    <script type ="module" src="./assets/js/questions.js"></script>
-    <script type ="module" src="./assets/js/logic.js"></script>
+  
+    <script type ='module' src="./assets/js/logic.js"></script>
   </body>
 </html>
