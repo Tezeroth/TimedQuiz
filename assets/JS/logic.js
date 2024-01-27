@@ -9,6 +9,37 @@ var questionsDivEL = document.getElementById('questions');
 var questionTitleEL = document.getElementById('question-title');
 var choicesEL = document.getElementById('choices');
 
+
+
+
+// New countdown timer function
+function startTimer() {
+  let seconds = 60; // Initial time in seconds
+  const timerSpan = document.getElementById('time');
+
+  const timerInterval = setInterval(function() {
+    seconds--;
+
+    timerSpan.textContent = seconds;
+
+    if (seconds <= 0) {
+      clearInterval(timerInterval);
+      alert('Time\'s up!');
+      // Additional logic after the timer reaches 0 can be added here
+    }
+  }, 1000); // 1000 milliseconds = 1 second
+}
+
+
+
+
+
+
+
+
+
+
+
 function startTheGame(event) {
     event.preventDefault();
     console.log("starting game");
@@ -41,7 +72,7 @@ function showQuestions() {
     for (var i = 0; i < currentQuestion.choices.length; i++) {
         // Create a button for each choice (using document.createElement("button"))
 
-        TODO:// put the buttons in a list
+        // todo put the buttons in a list
         
         var buttonEL = document.createElement("button");
         // Add a class to the button called choice-btn
@@ -98,6 +129,11 @@ function handleChoiceSelection(event)
 }
 
 
+document.getElementById('start').addEventListener('click', startTheGame);
 
 
-startScreenButtonEL.addEventListener("click", startTheGame);
+document.getElementById('start').addEventListener('click', startTimer);
+
+
+
+// startScreenButtonEL.addEventListener("click", startTheGame);
