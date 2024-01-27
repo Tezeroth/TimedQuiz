@@ -8,7 +8,8 @@ var startScreenButtonEL = document.getElementById('start');
 var questionsDivEL = document.getElementById('questions');
 var questionTitleEL = document.getElementById('question-title');
 var choicesEL = document.getElementById('choices');
-
+var feedbackEL = document.getElementById('feedback');
+let seconds = '';
 
 
 
@@ -108,17 +109,27 @@ function updateScore() {
 
 
 
-function handleChoiceSelection(event) 
-{
+function handleChoiceSelection(event) {
     var selectedChoiceId = event.target.getAttribute("data-choice-id");
     var currentQuestion = quizQuestions[currentQuestionIndex];
 
     if (selectedChoiceId == currentQuestion.correctAnswer) {
         currentQuestionIndex++;
-    
+
         updateScore();
-        // event.preventDefault();
-        
+        event.preventDefault();
+        document.getElementById('feedback').style.display = 'block';
+        document.getElementById('feedback').innerHTML = 'correct!';
+        console.log("correct");
+        event.preventDefault();
+        setTimeout(function()
+        // Clear the feedback message after 2 seconds
+         {
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('feedback').innerHTML = '';
+        }, 2000);
+        event.preventDefault();
+
         if (currentQuestionIndex < quizQuestions.length) {
             showQuestions();
         } else {
@@ -127,12 +138,36 @@ function handleChoiceSelection(event)
             document.getElementById('end-screen').style.display = 'block';
             document.getElementById('final-score').innerHTML = score;
             // Hide the last question and buttons
-        questionTitleEL.style.display = 'none';
-        choicesEL.style.display = 'none';
+            questionTitleEL.style.display = 'none';
+            choicesEL.style.display = 'none';
+
+     
+
+            setTimeout(function()
+            // Clear the feedback message after 2 seconds
+             {
+                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('feedback').innerHTML = '';
+            }, 2000);
+            event.preventDefault();
+
+
+
         }
     } else {
+        document.getElementById('feedback').style.display = 'block';
+        document.getElementById('feedback').innerHTML = 'Incorrect!';
+       
         // Incorrect answer
         // TODO: Handle incorrect answer logic
+        setTimeout(function()
+        // Clear the feedback message after 2 seconds
+         {
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('feedback').innerHTML = '';
+        }, 2000);
+        event.preventDefault();
+
     }
 }
 
