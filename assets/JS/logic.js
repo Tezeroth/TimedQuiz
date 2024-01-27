@@ -21,14 +21,14 @@ function preloadAudio() {
   window.addEventListener("DOMContentLoaded", preloadAudio);
 
 var startDivEL = document.getElementById('start-screen');
-var startScreenButtonEL = document.getElementById('start');
+// var startScreenButtonEL = document.getElementById('start');
 var questionsDivEL = document.getElementById('questions');
 var questionTitleEL = document.getElementById('question-title');
 var choicesEL = document.getElementById('choices');
-var feedbackEL = document.getElementById('feedback');
+// var feedbackEL = document.getElementById('feedback');
 const correctSound = new Audio("./assets/sfx/correct.wav");
 const wrongSound = new Audio("./assets/sfx/incorrect.wav");
-let seconds = '';
+// let seconds = '';
 
 
 
@@ -48,6 +48,8 @@ function startTimer() {
       // Additional logic after the timer reaches 0 can be added here
       questionsDivEL.style.display = 'none';
       document.getElementById('end-screen').style.display = 'block';
+      document.getElementById('final-score').innerHTML = score;
+
     }
   }, 1000); // 1000 milliseconds = 1 second
 }
@@ -132,11 +134,29 @@ function handleChoiceSelection(event) {
     var selectedChoiceId = event.target.getAttribute("data-choice-id");
     var currentQuestion = quizQuestions[currentQuestionIndex];
 
+
+    // if you get it right, its going to add 1 to the score, play a sound, and display a message
+    // if you get it wrong, its going to play a sound and display a message
+    if (selectedChoiceId == currentQuestion.correctAnswer) {
+      // ... existing code ...
+
+    } else {
+      document.getElementById('feedback').style.display = 'block';
+      document.getElementById('feedback').innerHTML = 'Incorrect!';
+      wrongSound.play();
+
+      // TODO: Handle incorrect answer logic
+      setTimeout(function() {
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('feedback').innerHTML = '';
+      }, 2000);
+      event.preventDefault();
+    }
     if (selectedChoiceId == currentQuestion.correctAnswer) {
         currentQuestionIndex++;
         correctSound.play();
         updateScore();
-        event.preventDefault();
+        event.preventDefault();// why not just bung them everywhere it seems to work
         document.getElementById('feedback').style.display = 'block';
         document.getElementById('feedback').innerHTML = 'correct!';
         console.log("correct");
@@ -173,21 +193,17 @@ function handleChoiceSelection(event) {
 
 
         }
-    } else {
-        document.getElementById('feedback').style.display = 'block';
-        document.getElementById('feedback').innerHTML = 'Incorrect!';
-        wrongSound.play();
-        // Incorrect answer
-        function playIncorrectSound() {
-            var audio = new Audio('sfx/incorrect.wav');
-            audio.play();
-        }
+
+
+ 
+
+
         // TODO: Handle incorrect answer logic
         setTimeout(function()
         // Clear the feedback message after 2 seconds
-         {
-            document.getElementById('feedback').style.display = 'none';
-            document.getElementById('feedback').innerHTML = '';
+        {
+          document.getElementById('feedback').style.display = 'none';
+          document.getElementById('feedback').innerHTML = '';
         }, 2000);
         event.preventDefault();
 
