@@ -26,6 +26,8 @@ function startTimer() {
       clearInterval(timerInterval);
       alert('Time\'s up!');
       // Additional logic after the timer reaches 0 can be added here
+      questionsDivEL.style.display = 'none';
+      document.getElementById('end-screen').style.display = 'block';
     }
   }, 1000); // 1000 milliseconds = 1 second
 }
@@ -130,10 +132,8 @@ function handleChoiceSelection(event)
 
 
 document.getElementById('start').addEventListener('click', startTheGame);
-
-
 document.getElementById('start').addEventListener('click', startTimer);
+// yes getting blagged by syntax errors for hours is fun. 
 
 
 
-// startScreenButtonEL.addEventListener("click", startTheGame);
