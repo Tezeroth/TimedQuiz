@@ -3,12 +3,31 @@
 
 import { quizQuestions } from './questions.js';
 
+// Preload audio files - this will help with the delay between playing the sound and it actually being heard
+// thankyou to chatGPT for help with this.
+function preloadAudio() {
+    const audioFiles = [
+      "./assets/sfx/correct.wav",
+      "./assets/sfx/incorrect.wav",
+
+    ];
+
+    audioFiles.forEach((audioFile) => {
+      const audio = new Audio();
+      audio.src = audioFile;
+    });
+  }
+
+  window.addEventListener("DOMContentLoaded", preloadAudio);
+
 var startDivEL = document.getElementById('start-screen');
 var startScreenButtonEL = document.getElementById('start');
 var questionsDivEL = document.getElementById('questions');
 var questionTitleEL = document.getElementById('question-title');
 var choicesEL = document.getElementById('choices');
 var feedbackEL = document.getElementById('feedback');
+const correctSound = new Audio("./assets/sfx/correct.wav");
+const wrongSound = new Audio("./assets/sfx/incorrect.wav");
 let seconds = '';
 
 
@@ -115,7 +134,7 @@ function handleChoiceSelection(event) {
 
     if (selectedChoiceId == currentQuestion.correctAnswer) {
         currentQuestionIndex++;
-
+        correctSound.play();
         updateScore();
         event.preventDefault();
         document.getElementById('feedback').style.display = 'block';
@@ -157,8 +176,12 @@ function handleChoiceSelection(event) {
     } else {
         document.getElementById('feedback').style.display = 'block';
         document.getElementById('feedback').innerHTML = 'Incorrect!';
-       
+        wrongSound.play();
         // Incorrect answer
+        function playIncorrectSound() {
+            var audio = new Audio('sfx/incorrect.wav');
+            audio.play();
+        }
         // TODO: Handle incorrect answer logic
         setTimeout(function()
         // Clear the feedback message after 2 seconds
