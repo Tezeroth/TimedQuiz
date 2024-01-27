@@ -120,6 +120,7 @@ function handleChoiceSelection(event)
             // Quiz completed
             // TODO: Handle end of quiz logic
             document.getElementById('end-screen').style.display = 'block';
+            document.getElementById('final-score').innerHTML = score;
             // Hide the last question and buttons
         questionTitleEL.style.display = 'none';
         choicesEL.style.display = 'none';
