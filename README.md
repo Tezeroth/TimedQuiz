@@ -12,11 +12,15 @@ For week 6 of the eDX skills boot camp we were challenged with creating a websit
     
   * When answer is clicked, the next question appears - done
     
-  * If the answer clicked was incorrect then subtract time from the clock - I didnt manage to work out how to deduct time from the time :( = yet
+  * If the answer clicked was incorrect then subtract time from the clock - I didnt manage to work out how to deduct time from the time :( - yet
 
 * The quiz should end when all questions are answered or the timer reaches 0. - done
 
   * When the game ends, it should display their score and give the user the ability to save their initials and their score - kind of done. can get it to store as a li item, but need to work out how store the scores on the high scores page. I will come back to this, I have spent to much time on it and might fall behind on other challenges.
+
+ THINGS THAT ANNOYED ME:
+
+- git hub folder names are case-sensitive. found out the hard way
 
   THINGS LEFT TO DO:
 
