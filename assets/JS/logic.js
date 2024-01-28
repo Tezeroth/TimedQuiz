@@ -1,7 +1,7 @@
 
 // THIS IS UPDATED CODE, IT SHOULD WORK ON GITHIB 
 
-import { quizQuestions } from './JS/questions.js';
+import { quizQuestions } from './questions.js';
 
 // Preload audio files - this will help with the delay between playing the sound and it actually being heard
 // thankyou to chatGPT for help with this.
