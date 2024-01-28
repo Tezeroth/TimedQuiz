@@ -19,7 +19,7 @@ function preloadAudio() {
   }
 
   window.addEventListener("DOMContentLoaded", preloadAudio);
-
+  var completedEL = document.getElementById('completed');
 var startDivEL = document.getElementById('start-screen');
 // var startScreenButtonEL = document.getElementById('start');
 var questionsDivEL = document.getElementById('questions');
@@ -179,6 +179,7 @@ function handleChoiceSelection(event) {
             // Hide the last question and buttons
             questionTitleEL.style.display = 'none';
             choicesEL.style.display = 'none';
+     
 
      
 
@@ -209,23 +210,21 @@ function handleChoiceSelection(event) {
 
     }
 }
+// EVERY TIME I EDIT THIS CODE IT BREAKS EVEN WHEN I CTRL Z BACK TO THE ORIGINAL- I HAVE NO IDEA WHY
 
 function saveHighScore() {
   var initials = document.getElementById('initials').value;
-  var finalScore = parseInt(document.getElementById('finalScore').innerHTML); // Update to retrieve the value correctly
+  var finalScore = parseInt(document.getElementById('finalScore').innerHTML);//GOD DAMMIT THAT TOOK ME FAR TO LONG TO FIGURE OUT
 
   var highscoresList = document.getElementById('finalScore');
   var listItem = document.createElement('li');
   listItem.innerHTML = initials + ': ' + finalScore;
   highscoresList.appendChild(listItem);
+  
 }
-
-
+;
 
 saveHighScore();
-
-
-
 
 document.getElementById('start').addEventListener('click', startTheGame);
 document.getElementById('start').addEventListener('click', startTimer);

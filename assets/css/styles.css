@@ -70,7 +70,7 @@ li:nth-child(odd) {
   display: flex;
   top: 10px;
   left: 10px;
-  border: red 1px solid;
+
 }
 
 #actualscore {
