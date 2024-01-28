@@ -1,5 +1,5 @@
 
-// THIS IS UPDATED CODE, IT SHOULD WORK ON GITHIB 
+// WORKING CODE GET ON GITHUB AND FINISH
 
 import { quizQuestions } from './questions.js';
 
