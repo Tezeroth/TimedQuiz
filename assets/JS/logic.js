@@ -212,14 +212,20 @@ function handleChoiceSelection(event) {
 
 function saveHighScore() {
   var initials = document.getElementById('initials').value;
-  
+  var finalScore = parseInt(document.getElementById('finalScore').innerHTML); // Update to retrieve the value correctly
 
   var highscoresList = document.getElementById('finalScore');
   var listItem = document.createElement('li');
-  listItem.textContent = initials + ': ' + finalScore;
+  listItem.innerHTML = initials + ': ' + finalScore;
   highscoresList.appendChild(listItem);
 }
+
+
+
 saveHighScore();
+
+
+
 
 document.getElementById('start').addEventListener('click', startTheGame);
 document.getElementById('start').addEventListener('click', startTimer);
