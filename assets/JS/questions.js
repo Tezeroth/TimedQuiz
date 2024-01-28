@@ -1,3 +1,6 @@
+
+// THIS IS UPDATED CODE, IT SHOULD WORK ON GITHIB
+
 // quizQuestions array
 // question - is the question
 // choices - is an arrary of answers
