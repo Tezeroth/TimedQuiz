@@ -12,7 +12,7 @@ For week 6 of the eDX skills boot camp we were challenged with creating a websit
     
   * When answer is clicked, the next question appears - done
     
-  * If the answer clicked was incorrect then subtract time from the clock - I didnt manage to work out how to deduct time from the time :( = yet
+  * If the answer clicked was incorrect then subtract time from the clock - I didnt manage to work out how to deduct time from the time :( - yet
 
 * The quiz should end when all questions are answered or the timer reaches 0. - done
 
